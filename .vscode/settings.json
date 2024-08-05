@@ -1,0 +1,7 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
+  },
+  "window.zoomLevel": 4,
+  "liveServer.settings.donotShowInfoMsg": true
+}
