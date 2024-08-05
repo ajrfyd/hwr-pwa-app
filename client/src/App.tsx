@@ -1,4 +1,3 @@
-import { Route, Routes } from 'react-router-dom';
 import useInitMap from './hooks/useInitMap';
 import styled from 'styled-components';
 import MapView from '@pages/MapView';
@@ -14,13 +13,7 @@ const App = () => {
 
   return (
     <Container>
-      {/* <MapContainer id="map" /> */}
       <MapView />
-      {/* <Routes>
-        <Route path="/" element={<Map />} />
-        <Route path="/setting" element={<Setting />} />
-      </Routes> */}
-      <Btn />
     </Container>
   );
 };
@@ -35,22 +28,4 @@ const Container = styled.div`
   /* align-items: center; */
   justify-content: center;
   margin: 0 auto;
-`;
-
-const MapContainer = styled.div`
-  width: 500px;
-  height: 100%;
-  height: 700px;
-  position: relative;
-`;
-
-const Btn = styled.button`
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  width: 50px;
-  height: 50px;
-  border: 3px solid red;
-  border-radius: 50%;
-  cursor: pointer;
 `;

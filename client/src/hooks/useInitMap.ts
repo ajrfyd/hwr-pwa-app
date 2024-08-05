@@ -19,7 +19,7 @@ const useInitMap = () => {
           ),
           level: 3
         };
-        const map = new window.kakao.maps.Map(mapContainer, options);
+        new window.kakao.maps.Map(mapContainer, options);
         setMap(window.kakao.maps);
       });
     });
