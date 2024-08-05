@@ -8,7 +8,10 @@ const App = () => {
   useInitMap();
 
   useEffect(() => {
-    console.log(window.kakao);
+    // fetch('https://bus.hkound.pe.kr/api').then(console.log);
+    fetch('https://bus.hkound.pe.kr/api')
+      .then((res) => res.json())
+      .then(console.log);
   }, []);
 
   return (

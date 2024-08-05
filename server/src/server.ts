@@ -4,6 +4,7 @@ import './lib/config/index.js';
 import cors from 'cors';
 import path from 'path';
 import { __dirname } from './lib/utils/index.js';
+import spotRouter from './routes/spot.route.js';
 
 // const app = express();
 app.use(express.json());
@@ -19,6 +20,8 @@ app.use(
     credentials: true
   })
 );
+
+app.use('/api', spotRouter);
 
 app.get('/', (req, res) => {
   res.status(200).send('index.html');
