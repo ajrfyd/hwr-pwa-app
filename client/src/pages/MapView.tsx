@@ -14,9 +14,9 @@ const MapView = () => {
 export default MapView;
 
 const MapContainer = styled.div`
-  width: 500px;
+  width: 100%;
   height: 100%;
-  height: 700px;
+  height: 100%;
   position: relative;
 `;
 
