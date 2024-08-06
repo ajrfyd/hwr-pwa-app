@@ -16,14 +16,26 @@ export default defineConfig({
         theme_color: '#fff',
         icons: [
           {
-            src: 'icons/favicon-32x32.png',
+            src: 'icons/pwa-64x64.png',
             type: 'image/png',
-            sizes: '32x32'
+            sizes: '64x64'
           },
           {
-            src: 'icons/favicon-96x96.png',
+            src: 'icons/pwa-192x192.png',
             type: 'image/png',
-            sizes: '96x96'
+            sizes: '192x192'
+          },
+          {
+            src: 'icons/pwa-512x512.png',
+            type: 'image/png',
+            sizes: '512x512',
+            purpose: 'any'
+          },
+          {
+            src: 'icons/maskable-icon-512x512.png',
+            type: 'image/png',
+            sizes: '512x512',
+            purpose: 'maskable'
           }
         ]
       }
