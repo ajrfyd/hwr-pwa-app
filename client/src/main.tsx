@@ -4,6 +4,7 @@ import GlobalStyles from './lib/styles/global.ts';
 import { BrowserRouter } from 'react-router-dom';
 import { QueryClientProvider } from '@tanstack/react-query';
 import client from './lib/query/index.ts';
+import { registerSW } from 'virtual:pwa-register';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
@@ -13,3 +14,5 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     </QueryClientProvider>
   </BrowserRouter>
 );
+
+registerSW({ immediate: true });
