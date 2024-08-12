@@ -10,10 +10,20 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico'],
+      injectRegister: 'auto',
+      workbox: {
+        cleanupOutdatedCaches: false,
+        sourcemap: true,
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}']
+      },
+      // strategies: 'injectManifest',
+      // srcDir: 'public',
+      // filename: 'sw.ts',
       manifest: {
         name: 'Hanwoori Bus',
         short_name: 'HanBus',
         theme_color: '#fff',
+        display: 'standalone',
         icons: [
           {
             src: 'icons/pwa-64x64.png',
@@ -38,11 +48,20 @@ export default defineConfig({
             purpose: 'maskable'
           }
         ]
+      },
+      injectManifest: {
+        injectionPoint: undefined,
+        rollupFormat: 'iife'
+      },
+      devOptions: {
+        enabled: true,
+        type: 'module'
       }
     })
   ],
   resolve: {
     alias: [
+      { find: '@', replacement: path.resolve(__dirname, 'src') },
       {
         find: '@pages',
         replacement: path.resolve(__dirname, 'src/pages')

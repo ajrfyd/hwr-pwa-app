@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -15,17 +15,17 @@ const GlobalStyles = createGlobalStyle`
   }
 
   @font-face {
-    font-family: "GeekbleMalang2";
-    src: url("/assets/fonts/GeekbleMalang2WOFF2.woff2") format("woff2"),
-    url("/assets/fonts/GeekbleMalang2WOFF.woff") format("woff"),
-    url("/assets/fonts/GeekbleMalang2TTF.ttf") format("truetype");
+    font-family: "DungGeunMo";
+    src: url("/assets/fonts/DungGeunMo.woff2") format("woff2"),
+    url("/assets/fonts/DungGeunMo.woff") format("woff"),
+    url("/assets/fonts/DungGeunMo.ttf") format("truetype");
     font-display: fallback;
     font-weight: normal;
     font-style: normal;
   }
   
   body {
-    font-family: "GeekbleMalang2", sans-serif;
+    font-family: "DungGeunMo", sans-serif;
   }
 
   *,

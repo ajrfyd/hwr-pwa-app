@@ -25,8 +25,13 @@
 
     "baseUrl": "src",
     "paths": {
+      "@/*": ["*"],
       "@pages/*": ["pages/*"]
     }
   },
-  "include": ["src"]
+  "include": [
+    "src",
+    "public/firebase-messaging-sw.js",
+    "firebase-messaging-sw.ts"
+  ]
 }

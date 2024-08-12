@@ -3,3 +3,9 @@
 interface Window {
   kakao: any;
 }
+
+declare interface Window {
+  workbox: any;
+}
+
+declare const self: ServiceWorkerGlobalScope & typeof globalThis;

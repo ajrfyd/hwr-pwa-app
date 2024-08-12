@@ -1,6 +1,6 @@
+import './lib/config/index.js';
 import express from 'express';
 import { app, server } from './socket/socket.js';
-import './lib/config/index.js';
 import cors from 'cors';
 import path from 'path';
 import { __dirname } from './lib/utils/index.js';

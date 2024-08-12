@@ -1,22 +1,38 @@
-import useInitMap from './hooks/useInitMap';
 import styled from 'styled-components';
 import MapView from '@pages/MapView';
 import { useEffect } from 'react';
-// import Home from '@pages/Home';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { requestPermission } from './lib/firebase';
+import './lib/firebase';
+// import socketStore from './store/socket';
+// import useInitMap from './hooks/useInitMap';
 
 const App = () => {
-  useInitMap();
+  // useInitMap();
+  // const { connect, disconnect } = socketStore();
 
   useEffect(() => {
-    // fetch('https://bus.hkound.pe.kr/api').then(console.log);
-    fetch('https://bus.hkound.pe.kr/api')
-      .then((res) => res.json())
-      .then(console.log);
+    requestPermission();
+    // connect();
+    // return () => disconnect();
   }, []);
 
   return (
     <Container>
       <MapView />
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={true}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </Container>
   );
 };
