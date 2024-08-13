@@ -41,7 +41,9 @@ export function requestPermission() {
 
 onMessage(messaging, (payload) => {
   // console.log("알림 도착 ", payload);
+  console.log(payload);
   if (!payload.notification) return;
+  console.log(payload.notification, 'in');
   const notificationTitle = payload.notification.title;
   const notificationOptions = {
     body: payload.notification.body

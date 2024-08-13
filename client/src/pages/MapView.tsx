@@ -80,6 +80,13 @@ const MapView = () => {
       //   }
       // });
     }
+    Notification.requestPermission().then((per) => {
+      if (per === 'granted') {
+        console.log('Good!');
+      } else {
+        console.log('허용 해야해!');
+      }
+    });
   };
 
   return (
