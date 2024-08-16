@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
 import useInitMap from '../hooks/useInitMap';
 import styled from 'styled-components';
-import notify from '@/lib/utils/notify';
+import allowNotificationHandler from '../lib/utils/allowNotificationHandler';
+// import notify from '@/lib/utils/notify';
+// import { requestPermission } from '@/lib/firebase';
 // import socketStore from '../store/socket';
 
 const MapView = () => {
@@ -38,60 +40,9 @@ const MapView = () => {
     }
   }, []);
 
-  const subscribeUser = async () => {
-    if ('serviceWorker' in navigator && 'PushManager' in window) {
-      const registration = await navigator.serviceWorker.ready;
-      console.log(registration);
-      if (registration.installing) {
-        console.log('Installing');
-      } else if (registration.waiting) {
-      } else if (registration.active) {
-        console.log('Active!');
-        console.log('Wainting');
-        // setInterval(() => {
-        //   console.log('Test activate');
-        // }, 2000);
-        fetch('https://jsonplaceholder.typicode.com/comments').then(
-          console.log
-        );
-      }
-
-      const sub = await registration.pushManager.subscribe({
-        userVisibleOnly: true,
-        applicationServerKey: import.meta.env.VITE_WEB_PUSH_PUBLIC_KEY
-      });
-
-      // setSubscription(sub);
-      console.dir(sub);
-      notify('test', 2000);
-
-      //& 서버에 구독 정보 전송
-      // if (isConnected) {
-      //   console.log('??????');
-      //   console.log(sub);
-      //   emit('sub', JSON.stringify(sub));
-      //   emit('test', 'lorem');
-      // }
-      // await fetch('/api/subscribe', {
-      //   method: 'POST',
-      //   body: JSON.stringify(sub),
-      //   headers: {
-      //     'Content-Type': 'application/json'
-      //   }
-      // });
-    }
-    Notification.requestPermission().then((per) => {
-      if (per === 'granted') {
-        console.log('Good!');
-      } else {
-        console.log('허용 해야해!');
-      }
-    });
-  };
-
   return (
     <MapContainer id="map">
-      <Btn onClick={subscribeUser} />
+      <Btn onClick={allowNotificationHandler} />
       {/* <Btn2 onClick={() => notify('WWWW@@')} /> */}
     </MapContainer>
   );

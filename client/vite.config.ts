@@ -9,54 +9,53 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico'],
-      injectRegister: 'auto',
-      workbox: {
-        cleanupOutdatedCaches: false,
-        sourcemap: true,
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}']
-      },
+      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
+      // injectRegister: 'auto',
+      // workbox: {
+      //   cleanupOutdatedCaches: false,
+      //   sourcemap: true,
+      //   globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}']
+      // },
       // strategies: 'injectManifest',
       // srcDir: 'public',
       // filename: 'sw.ts',
       manifest: {
         name: 'Hanwoori Bus',
-        short_name: 'HanBus',
-        theme_color: '#fff',
+        short_name: 'Hwr Bus',
+        theme_color: '#ffffff',
         display: 'standalone',
         icons: [
           {
-            src: 'icons/pwa-64x64.png',
-            type: 'image/png',
-            sizes: '64x64'
+            src: '/icons/pwa-64x64.png',
+            sizes: '64x64',
+            type: 'image/png'
           },
           {
-            src: 'icons/pwa-192x192.png',
-            type: 'image/png',
-            sizes: '192x192'
+            src: '/icons/pwa-192x192.png',
+            sizes: '192x192',
+            type: 'image/png'
           },
           {
-            src: 'icons/pwa-512x512.png',
-            type: 'image/png',
+            src: '/icons/pwa-512x512.png',
             sizes: '512x512',
-            purpose: 'any'
+            type: 'image/png'
           },
           {
-            src: 'icons/maskable-icon-512x512.png',
-            type: 'image/png',
+            src: '/icons/maskable-icon-512x512.png',
             sizes: '512x512',
+            type: 'image/png',
             purpose: 'maskable'
           }
         ]
-      },
-      injectManifest: {
-        injectionPoint: undefined,
-        rollupFormat: 'iife'
-      },
-      devOptions: {
-        enabled: true,
-        type: 'module'
       }
+      // injectManifest: {
+      //   injectionPoint: undefined,
+      //   rollupFormat: 'iife'
+      // },
+      // devOptions: {
+      //   enabled: true,
+      //   type: 'module'
+      // }
     })
   ],
   resolve: {

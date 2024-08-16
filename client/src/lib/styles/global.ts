@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import 'nes.css/css/nes.min.css';
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -19,20 +20,25 @@ const GlobalStyles = createGlobalStyle`
     src: url("/assets/fonts/DungGeunMo.woff2") format("woff2"),
     url("/assets/fonts/DungGeunMo.woff") format("woff"),
     url("/assets/fonts/DungGeunMo.ttf") format("truetype");
-    font-display: fallback;
+    font-display: swap;
     font-weight: normal;
     font-style: normal;
   }
   
   body {
-    font-family: "DungGeunMo", sans-serif;
+    font-family: "DungGeunMo" "Press Start 2P", monospace;
+    /* font-weight: bold; */
+  }
+
+  .nes-container, .nes-btn, .nes-input {
+    font-family: 'DungGeunMo', 'Press Start 2P', monospace !important;
   }
 
   *,
   *::after,
   *::after {
     box-sizing: border-box;
-    font-family: "GeekbleMalang2", sans-serif;
+    font-family: "DungGeunMo", 'Press Start 2P', monospace !important;
   }
 
   html {

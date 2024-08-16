@@ -29,9 +29,5 @@
       "@pages/*": ["pages/*"]
     }
   },
-  "include": [
-    "src",
-    "public/firebase-messaging-sw.js",
-    "firebase-messaging-sw.ts"
-  ]
+  "include": ["src", "public/firebase-messaging-sw.js"]
 }

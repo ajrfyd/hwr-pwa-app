@@ -12,15 +12,15 @@ self.addEventListener('push', (e) => {
   console.log(resultData, options);
   // console.log(self);
 
-  if (Notification.permission === 'granted') {
-    if (navigator.serviceWorker) {
-      navigator.serviceWorker.ready.then((registration) => {
-        registration.showNotification(title, options);
-      });
-    }
-  }
-  e.waitUntil(self.registration.showNotification(title, options));
-  // self.registration.showNotification(title, options);
+  // if (Notification.permission === 'granted') {
+  //   if (navigator.serviceWorker) {
+  //     navigator.serviceWorker.ready.then((registration) => {
+  //       registration.showNotification(title, options);
+  //     });
+  //   }
+  // }
+  // e.waitUntil(self.registration.showNotification(title, options));
+  self.registration.showNotification(title, options);
 });
 
 // function showNotification(title, options) {
