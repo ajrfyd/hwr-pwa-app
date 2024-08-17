@@ -11,8 +11,8 @@ const Home = () => {
       />
       <MenuItem
         link="line"
-        title="노선 보기"
-        content="탑승 위치를 변경하고 싶다면 눌러 주세요."
+        title="전체 노선 보기"
+        content="노선을 보고 싶다면 눌러 주세요."
       />
       <MenuItem
         link="change"

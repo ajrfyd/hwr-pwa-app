@@ -6,6 +6,7 @@ import onMessageListener from './lib/utils/onMessageListener';
 import { Route, Routes } from 'react-router-dom';
 import MapView from './pages/MapView';
 import Home from './pages/Home';
+import Line from './pages/Line';
 // import MapView from '@pages/MapView';
 // import { requestPermission } from './lib/firebase';
 // import './lib/firebase';
@@ -28,6 +29,7 @@ const App = () => {
       {/* <DottedOutline className="nes-container is-rounded"> */}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/line" element={<Line />} />
         <Route path="/map" element={<MapView />} />
       </Routes>
       {/* </DottedOutline> */}

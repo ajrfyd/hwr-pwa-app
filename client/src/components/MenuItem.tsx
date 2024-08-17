@@ -1,20 +1,48 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 type MenuItemProps = {
-  link: string;
+  link?: string;
   title: string;
   content?: string;
+  isRounded?: boolean;
+  isCentered?: boolean;
 };
 
-const MenuItem = ({ link, title, content }: MenuItemProps) => {
+const MenuItem = ({
+  link,
+  title,
+  content,
+  isRounded = false,
+  isCentered = false
+}: MenuItemProps) => {
   return (
-    <CustomLink to={`/${link}`}>
-      <DottedOutlineItem className="nes-container is-dark with-title">
-        <p className="title">{title}</p>
-        <p>{content}</p>
-      </DottedOutlineItem>
-    </CustomLink>
+    <>
+      {link ? (
+        <CustomLink to={`/${link}`}>
+          <DottedOutlineItem
+            className={`nes-container is-dark with-title ${
+              isRounded ? 'is-rounded' : ''
+            } ${isCentered ? 'is-centered' : ''}`}
+          >
+            <p className="title">{title}</p>
+            <p>{content}</p>
+          </DottedOutlineItem>
+        </CustomLink>
+      ) : (
+        <React.Fragment>
+          <DottedOutlineItem
+            className={`nes-container is-dark with-title ${
+              isRounded ? 'is-rounded' : ''
+            } ${isCentered ? 'is-centered' : ''}`}
+          >
+            <p className="title">{title}</p>
+            <p>{content}</p>
+          </DottedOutlineItem>
+        </React.Fragment>
+      )}
+    </>
   );
 };
 
