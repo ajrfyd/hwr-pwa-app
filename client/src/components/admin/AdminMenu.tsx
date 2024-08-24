@@ -6,7 +6,7 @@ import getUserFBToken from '@/lib/utils/getUserFBToken';
 const AdminMenu = () => {
   const tokenGetter = async () => {
     const token = await getUserFBToken();
-    fetch(`import.meta.env.VITE_API_ENDPOINT/messages`);
+    fetch(`${import.meta.env.VITE_API_ENDPOINT}/messages`);
     // console.log(token);
     notify(token as string);
   };
