@@ -1,9 +1,9 @@
-import DottedOutline from '@/components/DottedOutline';
 import MenuItem from '@/components/MenuItem';
+import React from 'react';
 
 const Line = () => {
   return (
-    <DottedOutline>
+    <React.Fragment>
       <MenuItem
         title="출 발"
         content="한우리 장애인 주간보호센터"
@@ -134,7 +134,7 @@ const Line = () => {
         isRounded
         isCentered
       />
-    </DottedOutline>
+    </React.Fragment>
   );
 };
 

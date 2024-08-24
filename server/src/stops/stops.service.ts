@@ -12,12 +12,16 @@ export class StopsService {
   ) {}
 
   async getAllStops() {
-    return await this.stopsRepository.find();
+    return await this.stopsRepository.find({
+      where: {},
+      order: {
+        order: 'ASC',
+      },
+    });
   }
 
   async createStop(dto: CreateStopDto) {
     const stop = await this.stopsRepository.create(dto);
-
     return await this.stopsRepository.save(stop);
   }
 }

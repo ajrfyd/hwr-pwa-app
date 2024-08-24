@@ -8,22 +8,22 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
-      registerType: 'autoUpdate',
+      // registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
-      // injectRegister: 'auto',
-      // workbox: {
-      //   cleanupOutdatedCaches: false,
-      //   sourcemap: true,
-      //   globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}']
-      // },
-      // strategies: 'injectManifest',
+      // injectRegister: null,
       // srcDir: 'public',
-      // filename: 'sw.ts',
+      // filename: 'firebase-messaging-sw.js',
+      // workbox: {
+      // sourcemap: true,
+      // globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
+      // globIgnores: ['**/node_modules/**/*', 'sw.js', 'workbox-*.js']
+      // },
       manifest: {
         name: 'Hanwoori Bus',
         short_name: 'Hwr Bus',
         theme_color: '#ffffff',
         display: 'standalone',
+        start_url: '/',
         icons: [
           {
             src: '/icons/pwa-64x64.png',
@@ -47,15 +47,12 @@ export default defineConfig({
             purpose: 'maskable'
           }
         ]
+      },
+      devOptions: {
+        enabled: true,
+        type: 'module',
+        navigateFallback: 'index.html'
       }
-      // injectManifest: {
-      //   injectionPoint: undefined,
-      //   rollupFormat: 'iife'
-      // },
-      // devOptions: {
-      //   enabled: true,
-      //   type: 'module'
-      // }
     })
   ],
   resolve: {

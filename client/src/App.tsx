@@ -1,38 +1,41 @@
-import styled from 'styled-components';
-import { useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
+import { Route, Routes } from 'react-router-dom';
+import styled from 'styled-components';
+import Line from './pages/Line';
+import Main from './pages/Main';
+import AdminHome from './pages/admin/AdminHome';
+import AdminMenu from './components/admin/AdminMenu';
+import UserMenu from './components/user/UserMenu';
+import UserHome from './pages/user/UserHome';
+import CreateStop from './pages/admin/CreateStop';
 import 'react-toastify/dist/ReactToastify.css';
 import onMessageListener from './lib/utils/onMessageListener';
-import { Route, Routes } from 'react-router-dom';
-import MapView from './pages/MapView';
-import Home from './pages/Home';
-import Line from './pages/Line';
-// import MapView from '@pages/MapView';
-// import { requestPermission } from './lib/firebase';
-// import './lib/firebase';
-// import socketStore from './store/socket';
-// import useInitMap from './hooks/useInitMap';
+import { useEffect } from 'react';
+import { registerServiceWorker } from './lib/utils/registerServiceWorker';
+import RegisterStop from './pages/user/RegisterStop';
 
 const App = () => {
-  // useInitMap();
-  // const { connect, disconnect } = socketStore();
-
   useEffect(() => {
-    // requestPermission();
-    // connect();
-    // return () => disconnect();
+    registerServiceWorker();
     onMessageListener();
   }, []);
 
   return (
     <Container>
-      {/* <DottedOutline className="nes-container is-rounded"> */}
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/line" element={<Line />} />
-        <Route path="/map" element={<MapView />} />
+        <Route path="/" element={<Main />} />
+
+        <Route path="/admin" element={<AdminHome />}>
+          <Route index element={<AdminMenu />} />
+          {/* <Route path="line" element={<Line />} /> */}
+          <Route path="createStop" element={<CreateStop />} />
+        </Route>
+        <Route path="/user" element={<UserHome />}>
+          <Route index element={<UserMenu />} />
+          <Route path="line" element={<Line />} />
+          <Route path="register" element={<RegisterStop />} />
+        </Route>
       </Routes>
-      {/* </DottedOutline> */}
       <ToastContainer
         position="top-right"
         autoClose={2000}

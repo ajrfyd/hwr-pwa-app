@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { CSSProperties } from 'styled-components';
 
 type MenuItemProps = {
   link?: string;
@@ -8,6 +8,9 @@ type MenuItemProps = {
   content?: string;
   isRounded?: boolean;
   isCentered?: boolean;
+  style?: CSSProperties;
+  closed?: boolean;
+  onClick?: () => void;
 };
 
 const MenuItem = ({
@@ -15,12 +18,15 @@ const MenuItem = ({
   title,
   content,
   isRounded = false,
-  isCentered = false
+  isCentered = false,
+  style,
+  closed = false,
+  onClick
 }: MenuItemProps) => {
   return (
     <>
-      {link ? (
-        <CustomLink to={`/${link}`}>
+      {link && !closed ? (
+        <CustomLink to={`/${link}`} style={style}>
           <DottedOutlineItem
             className={`nes-container is-dark with-title ${
               isRounded ? 'is-rounded' : ''
@@ -36,6 +42,8 @@ const MenuItem = ({
             className={`nes-container is-dark with-title ${
               isRounded ? 'is-rounded' : ''
             } ${isCentered ? 'is-centered' : ''}`}
+            style={style}
+            onClick={onClick}
           >
             <p className="title">{title}</p>
             <p>{content}</p>

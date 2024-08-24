@@ -55,4 +55,6 @@ pids
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 docker-compose.yaml
-postgres-data
+
+/postgres-data
+/src/test-fd-55b95-firebase-adminsdk-yryid-a3b4780867.json

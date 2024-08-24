@@ -1,9 +1,19 @@
 import { PropsWithChildren } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const DottedOutline = ({ children }: PropsWithChildren) => {
+type DottedOutline = {
+  direction?: 'col' | 'row';
+};
+
+const DottedOutline = ({
+  children,
+  direction = 'col'
+}: DottedOutline & PropsWithChildren) => {
   return (
-    <DottedOutlineContainer className="nes-container is-rounded">
+    <DottedOutlineContainer
+      className="nes-container is-rounded"
+      direction={direction}
+    >
       {children}
     </DottedOutlineContainer>
   );
@@ -11,11 +21,16 @@ const DottedOutline = ({ children }: PropsWithChildren) => {
 
 export default DottedOutline;
 
-const DottedOutlineContainer = styled.div`
+const DottedOutlineContainer = styled.div<Pick<DottedOutline, 'direction'>>`
   &.nes-container.is-rounded {
     height: 100%;
+    min-height: 50vh;
     display: flex;
-    flex-direction: column;
     gap: 1rem;
+    ${({ direction }) =>
+      direction &&
+      css`
+        flex-direction: ${direction === 'col' ? 'column' : 'row'};
+      `}
   }
 `;

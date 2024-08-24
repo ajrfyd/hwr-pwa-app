@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { ClassSerializerInterceptor, Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ServeStaticModule } from '@nestjs/serve-static';
@@ -7,6 +7,12 @@ import { PUBLIC_PATH, BUILD_PATH } from './common/constants/path.const';
 import { StopsModule } from './stops/stops.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { StopsModel } from './stops/entity/stops.entity';
+import { UsersModule } from './users/users.module';
+import { BusModule } from './bus/bus.module';
+import { BusModel } from './bus/entity/bus.entity';
+import { UsersModel } from './users/entity/users.entity';
+import { APP_INTERCEPTOR } from '@nestjs/core';
+import { MessagesModule } from './messages/messages.module';
 
 @Module({
   imports: [
@@ -27,11 +33,20 @@ import { StopsModel } from './stops/entity/stops.entity';
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
       synchronize: true,
-      entities: [StopsModel],
+      entities: [StopsModel, BusModel, UsersModel],
     }),
     StopsModule,
+    UsersModule,
+    BusModule,
+    MessagesModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: ClassSerializerInterceptor,
+    },
+  ],
 })
 export class AppModule {}
