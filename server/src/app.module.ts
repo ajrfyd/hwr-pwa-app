@@ -23,7 +23,16 @@ import { MessagesModule } from './messages/messages.module';
     }),
     ServeStaticModule.forRoot({
       rootPath: BUILD_PATH,
-      serveRoot: '/',
+      // serveRoot: '/',
+      exclude: ['/api*'],
+      serveStaticOptions: {
+        index: false,
+        setHeaders: (res, path) => {
+          if (path.endsWith('.js')) {
+            res.set('Content-Type', 'application/javascript');
+          }
+        },
+      },
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
