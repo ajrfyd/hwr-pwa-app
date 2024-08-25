@@ -18,6 +18,7 @@ const firebaseConfig = {
 // Initialize Firebase
 initializeApp(firebaseConfig);
 export const messaging = getMessaging();
+
 // firebase.initializeApp(firebaseConfig);
 
 // getToken(messaging, { vapidKey: import.meta.env.VITE_FB_VAPID_KEY })

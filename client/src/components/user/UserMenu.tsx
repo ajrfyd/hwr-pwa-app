@@ -16,6 +16,7 @@ const UserMenu = () => {
   const notifyAndTokenHandler = async () => {
     const noti = await allowNotificationHandler();
     console.log(noti);
+
     if (!noti) return notify(`알림을 허용해 주세요. ${noti} ${permission}`);
     // const token = await getUserFBToken();
     // if (!token)
@@ -62,7 +63,10 @@ const UserMenu = () => {
         onClick={allowNotificationHandler}
       /> */}
       {permission !== 'granted' && (
-        <Button title="알림 권한 설정하기" onClick={notifyAndTokenHandler} />
+        <Button
+          title="알림 권한 설정하기"
+          onClick={() => notifyAndTokenHandler()}
+        />
       )}
     </React.Fragment>
   );
