@@ -13,8 +13,8 @@ export class AppController {
     // return this.appService.getHello();
   }
 
-  // @Get('*')
-  // serveReact(@Res() res: Response) {
-  //   return res.sendFile('index.html', { root: 'public/build' });
-  // }
+  @Get('*')
+  serveReact(@Res() res: Response) {
+    return res.sendFile('index.html', { root: 'public/build' });
+  }
 }
