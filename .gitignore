@@ -6,4 +6,5 @@ dist
 .yaml
 
 
-/server/postgres-data
+/postgres-data/*
+.vscode/

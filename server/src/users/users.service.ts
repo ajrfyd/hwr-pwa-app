@@ -36,6 +36,7 @@ export class UsersService {
       // stops: dto.stopIds.map((stop) => ({ id: stop })),
     });
 
+    console.log(user);
     return await this.usersRepository.save(user);
   }
 
