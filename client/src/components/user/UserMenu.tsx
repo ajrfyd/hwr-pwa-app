@@ -5,16 +5,19 @@ import NoteBaloon from '../NoteBaloon';
 import useGetNotiPermission from '@/hooks/useGetNotiPermission';
 import Button from '../Button';
 import notify from '@/lib/utils/notify';
+import { useNavigate } from 'react-router-dom';
 // import useMutateCreateUser from '@/lib/query/useMutateCreateUser';
 // import client from '@/lib/query';
 // import querykeys from '@/lib/query/queryKeys';
 
 const UserMenu = () => {
   const [permission] = useGetNotiPermission();
+  const navigate = useNavigate();
   // const [token, setToken] = useState('');
 
   const notifyAndTokenHandler = async () => {
     const noti = await allowNotificationHandler();
+
     console.log(noti);
 
     if (!noti) return notify(`알림을 허용해 주세요. ${noti} ${permission}`);
@@ -68,6 +71,7 @@ const UserMenu = () => {
           onClick={() => notifyAndTokenHandler()}
         />
       )}
+      <Button title="Refresh" onClick={() => navigate('/user')} />
     </React.Fragment>
   );
 };
