@@ -71,7 +71,7 @@ const UserMenu = () => {
           onClick={() => notifyAndTokenHandler()}
         />
       )}
-      <Button title="Refresh" onClick={() => navigate('/user')} />
+      <Button title="Refresh" onClick={() => navigate('/')} />
     </React.Fragment>
   );
 };
