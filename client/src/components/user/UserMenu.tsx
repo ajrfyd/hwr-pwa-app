@@ -16,7 +16,7 @@ const UserMenu = () => {
   const notifyAndTokenHandler = async () => {
     const noti = await allowNotificationHandler();
     console.log(noti);
-    if (!noti) return notify('알림을 허용해 주세요.');
+    if (!noti) return notify(`알림을 허용해 주세요. ${noti} ${permission}`);
     // const token = await getUserFBToken();
     // if (!token)
     //   return notify('토큰 발급에 실패하였습니다. 잠시 후 다시 시도해 주세요.');
