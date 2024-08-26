@@ -1,32 +1,32 @@
 import MenuItem from '../MenuItem';
 import React from 'react';
-import allowNotificationHandler from '@/lib/utils/allowNotificationHandler';
 import NoteBaloon from '../NoteBaloon';
 import useGetNotiPermission from '@/hooks/useGetNotiPermission';
 import Button from '../Button';
-import notify from '@/lib/utils/notify';
-import { useNavigate } from 'react-router-dom';
+// import notify from '@/lib/utils/notify';
+// import allowNotificationHandler from '@/lib/utils/allowNotificationHandler';
+// import { useNavigate } from 'react-router-dom';
 // import useMutateCreateUser from '@/lib/query/useMutateCreateUser';
 // import client from '@/lib/query';
 // import querykeys from '@/lib/query/queryKeys';
 
 const UserMenu = () => {
-  const [permission] = useGetNotiPermission();
-  const navigate = useNavigate();
+  const { permission, requestPermission } = useGetNotiPermission();
+  // const navigate = useNavigate();
   // const [token, setToken] = useState('');
 
-  const notifyAndTokenHandler = async () => {
-    const noti = await allowNotificationHandler();
+  // const notifyAndTokenHandler = async () => {
+  //   const noti = await allowNotificationHandler();
 
-    console.log(noti);
+  //   console.log(noti);
 
-    if (!noti) return notify(`알림을 허용해 주세요. ${noti} ${permission}`);
-    // const token = await getUserFBToken();
-    // if (!token)
-    //   return notify('토큰 발급에 실패하였습니다. 잠시 후 다시 시도해 주세요.');
-    // mutate(token);
-    // setStorage('token', JSON.stringify(token));
-  };
+  //   if (!noti) return notify(`알림을 허용해 주세요. ${noti} ${permission}`);
+  //   // const token = await getUserFBToken();
+  //   // if (!token)
+  //   //   return notify('토큰 발급에 실패하였습니다. 잠시 후 다시 시도해 주세요.');
+  //   // mutate(token);
+  //   // setStorage('token', JSON.stringify(token));
+  // };
 
   return (
     <React.Fragment>
@@ -66,12 +66,9 @@ const UserMenu = () => {
         onClick={allowNotificationHandler}
       /> */}
       {permission !== 'granted' && (
-        <Button
-          title="알림 권한 설정하기"
-          onClick={() => notifyAndTokenHandler()}
-        />
+        <Button title="알림 권한 설정하기" onClick={requestPermission} />
       )}
-      <Button title="Refresh" onClick={() => navigate('/')} />
+      <Button title="Refresh" onClick={requestPermission} />
     </React.Fragment>
   );
 };
